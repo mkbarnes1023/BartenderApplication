@@ -1,8 +1,43 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card shadow-lg">
+            <div class="card-header bg-dark text-white text-center">
+                <h1 class="display-4 mb-0">Welcome to the Cozy Cocktail</h1>
+                <p class="lead mt-2">Your online bar experience</p>
+            </div>
+            <div class="card-body bg-light">
+                <div class="text-center mb-4">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+                         alt="Bar" class="img-fluid rounded" style="max-height: 300px;">
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100 border-primary">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Order a Cocktail</h5>
+                                <p class="card-text">Browse our menu and place your order for a handcrafted cocktail.</p>
+                                <a asp-controller="CocktailOrder" asp-action="Menu" class="btn btn-primary btn-lg">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100 border-success">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Bartender Queue</h5>
+                                <p class="card-text">Bartenders can view and manage the cocktail order queue.</p>
+                                <a asp-controller="CocktailOrder" asp-action="OrderQueue" class="btn btn-success btn-lg">View Queue</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a asp-controller="CocktailOrder" asp-action="CompletedOrders" class="btn btn-outline-dark">View Completed Cocktails</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,0 +1,6 @@
+﻿@model BartenderApplication.Models.Order
+@{
+    ViewData["Title"] = "Order Confirmation";
+}
+<h2>Order Confirmation</h2>
+<p>Thank you, @Model.CustomerName! Your order for <strong>@Model.Quantity</strong> x <strong>@Model.Cocktail.Name</strong> has been placed.</p>

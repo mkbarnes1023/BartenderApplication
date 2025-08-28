@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BartenderApplication.Models.Order>
+@{
+    ViewData["Title"] = "Completed Cocktails";
+}
+<h2 class="mb-4">Completed Cocktails</h2>
+
+<div class="mb-3 text-end">
+    <a asp-controller="CocktailOrder" asp-action="OrderQueue" class="btn btn-outline-primary">
+        Back to Order Queue
+    </a>
+</div>
+
+<table class="table table-striped table-bordered align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>Order ID</th>
+            <th>Cocktail</th>
+            <th>Customer</th>
+            <th>Quantity</th>
+            <th>Time</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Id</td>
+                <td>@order.Cocktail.Name</td>
+                <td>@order.CustomerName</td>
+                <td>@order.Quantity</td>
+                <td>@order.OrderTime.ToString("g")</td>
+                <td>
+                    <span class="badge bg-success">@order.Status</span>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

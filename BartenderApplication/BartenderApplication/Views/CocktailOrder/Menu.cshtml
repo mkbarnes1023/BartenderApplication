@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BartenderApplication.Models.Cocktail>
+@{
+    ViewData["Title"] = "Cocktail Menu";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card shadow-lg border-warning">
+            <div class="card-header bg-warning text-dark text-center">
+                <h2 class="mb-0">🍹 Cocktail Menu</h2>
+                <p class="lead mt-2">Pick your favorite drink and let us mix some magic!</p>
+            </div>
+            <div class="card-body bg-light">
+                <div class="row">
+                    @foreach (var cocktail in Model)
+                    {
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-info">
+                                <div class="card-body">
+                                    <h5 class="card-title">@cocktail.Name</h5>
+                                    <p class="card-text">@cocktail.Description</p>
+                                    <p class="card-text"><span class="badge bg-info text-dark">$@cocktail.Price</span></p>
+                                    <form asp-action="Order" method="post">
+                                        <input type="hidden" name="cocktailId" value="@cocktail.Id" />
+                                        <div class="mb-2">
+                                            <input type="text" name="customerName" class="form-control" required placeholder="Your Name" />
+                                        </div>
+                                        <div class="mb-2">
+                                            <input type="number" name="quantity" class="form-control" min="1" max="20" value="1" required />
+                                        </div>
+                                        <button type="submit" class="btn btn-warning w-100">
+                                            Order @cocktail.Name
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
